@@ -1,0 +1,20 @@
+[  
+  {  
+    "id": 1,  
+    "name": "Jack",
+    "lastname": "Doe",  
+    "email": "jack@gmail.com",
+    "phonenumber":"",
+    "address":{
+        "country":"Colombia",
+        "state":"",
+        "place":"",
+        "reference":""
+    },  
+    "gender": "male",
+    "data_register":"23/12/2023",
+    "profile_image":"",
+    "courses":[],
+    "level":"begginer"
+  }
+]  

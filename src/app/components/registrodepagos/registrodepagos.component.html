@@ -1,0 +1,45 @@
+<!--
+  Campo para Filtrar los datos del pago
+  Filtro por Fecha, Usuario
+-->
+<div class="filtro-pagos">
+  <p>Ultimos Pagos</p>
+</div>
+
+<div class="contenedor-pagos">
+  <div class="lista-pagos">
+
+    <!--Tabla con los Datos-->
+    <ion-grid>
+      <!--tabla header-->
+      <ion-row>
+        <ion-col size="1" class="texto-mediano" style="font-weight: 400;">#</ion-col>
+        <ion-col size="1"></ion-col>
+        <ion-col size="2" class="texto-mediano" style="font-weight: 400;">Nombres</ion-col>
+        <ion-col size="2" class="texto-mediano" style="font-weight: 400;">Monto</ion-col>
+        <ion-col size="2" class="texto-mediano" style="font-weight: 400;">Fecha</ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+      <!--Datos a Mostrar-->
+      <ion-row *ngFor="let pagosrecibidos of pagosRegistrados">
+        <ion-col size="1" class="texto-pequeño">{{pagosrecibidos.id}}</ion-col>
+        <ion-col size="1">
+          <ion-avatar>
+            <img src="{{pagosrecibidos.imagenPerfil}}" alt="" style="width: 42px; height: 42px; margin-top: -8px;">
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="2" class="texto-pequeño">{{pagosrecibidos.nombre}}</ion-col>
+        <ion-col size="2" class="texto-pequeño">{{pagosrecibidos.montoPagado}}</ion-col>
+        <ion-col size="2" class="texto-pequeño">{{pagosrecibidos.fecha}}</ion-col>
+        <ion-col size="2" class="texto-mediano"><ion-icon name="eye-outline" color="jmvioleta"></ion-icon></ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <div class="historial-pagos">
+    <div class="ion-padding">
+      <p>Acumulado General</p>
+      <h1>$2500</h1>
+    </div>
+  </div>
+</div>

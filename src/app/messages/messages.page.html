@@ -1,0 +1,88 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-title>Dashboard/Mensajes</ion-title>
+    <ion-item lines="none" slot="end" color="light">
+      <ion-avatar slot="start">
+        <img src="../../assets/icons/wisdomlogo.jpg" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h1>Admin</h1>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="main-content">
+    <div class="left_content">
+      <app-side-menu></app-side-menu>
+    </div>
+
+    <div class="right_content">
+      <!--app-chats></app-chats-->
+
+      <div class="chat-container">
+        <!--Lista de mis Usuarios-->
+        <div class="lista-usuarios">
+          <ion-list>
+            <ion-list-header>
+              <ion-label>
+                <h1 class="titulo">Usuarios</h1>
+              </ion-label>
+            </ion-list-header>
+
+            <ion-item lines="full" (click)="ObtenerMensajes(usuarios.id)" *ngFor="let usuarios of usuariosRegistrados">
+              <ion-avatar slot="start">
+                <img src="../../../assets/profiles/profile1.jpg" alt="" class="avatar-42">
+              </ion-avatar>
+              <ion-label>
+                <p class="texto-pequeño" style="width: 100%; font-weight: 600;">{{usuarios.email}}</p>
+                <p class="texto-pequeño" style="margin-top: -5px;">Ultimo mensaje</p>
+              </ion-label>
+              <ion-icon name="chatbox-ellipses-outline" slot="end" color="success" class="texto-mediano"></ion-icon>
+            </ion-item>
+
+          </ion-list>
+        </div>
+
+        <div class="chats-displey">
+
+          <!--conversacion-->
+          <ion-list *ngFor="let message of messages">
+            <div class="{{rol}}">
+              <div class="texto-mensaje">
+                <p>{{message.mensaje}}</p>
+              </div>
+
+            </div>
+          </ion-list>
+
+          <!--Campo para escribir mensajes-->
+          <div class="campo-mensajes">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="10">
+                  <ion-textarea type="text" color="jmvioleta" placeholder="Ingrese Mensaje"
+                    [(ngModel)]="message"></ion-textarea>
+                </ion-col>
+                <ion-col size="2">
+                  <div class="btn-enviar-mensaje" (click)="sendMessajes()">
+                    <ion-icon name="navigate-outline" slot="end" style="font-size: 22px; color: azure;">
+                    </ion-icon>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</ion-content>

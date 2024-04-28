@@ -1,0 +1,72 @@
+<!--ion-header class="ion-no-border">
+  <ion-toolbar color="jmprimary">
+    <ion-title size="large">
+      WisdomJM
+    </ion-title>
+  </ion-toolbar>
+</ion-header-->
+
+<ion-content [fullscreen]="true">
+  <!--
+    Este es el codigo que contiene la Image ubicada a la izquierda
+    y a la derecha esta ubocado los campos para realizar el login del Dashboard
+    para agregar contenido
+  -->
+  <section class="home_section">
+    <!--Contiene la Imagen del fondo, se cambia en el css de este componente-->
+    <div class="image_content"></div>
+    <!--Permite realizar el login hacia el dashboard-->
+    <div class="login_content">
+      <div class="login_input_container">
+        <div class="logoconteiner">
+          <img src="../../assets/icons/wisdomlogo.jpg" alt="">
+        </div>
+        <h1 class="ion-text-center" style="font-weight: 500; font-size: 62px; color: rgb(24, 24, 24);">WisdomJM</h1>
+        <ion-list lines="none">
+          <ion-list-header>
+            <ion-label style="font-weight: 500; font-size: 2rem;" color="jmvioleta">Login</ion-label>
+          </ion-list-header>
+          <!--Email-->
+          <ion-item>
+            <!--ion-label position="floating" color="jmvioleta">Email</ion-label-->
+            <ion-input
+              color="jmvioleta" 
+              placeholder="user@email.com" 
+              [(ngModel)]="email" 
+              label="Email"
+              label-placement="floating">
+            </ion-input>
+          </ion-item>
+          <!--Contraseña-->
+          <ion-item>
+            <!--ion-label position="floating" color="jmvioleta">Password</ion-label-->
+            <ion-input 
+              color="jmvioleta"
+              type="password" 
+              placeholder="* * * * * *" 
+              [(ngModel)]="password" 
+              label="Password"
+              label-placement="floating">
+            </ion-input>
+          </ion-item>
+          <!--Boton de Login-->
+          <ion-button 
+            expand="block" 
+            color="jmvioleta" 
+            (click)="AutenticationUser.SignIn(email, password)">
+            Login
+          </ion-button> 
+        </ion-list>
+
+        <!--Copyright-->
+        <div class="copyright">
+          <p class="ion-text-center">
+            Todos los Derechos Reservados | 2024
+          </p>
+        </div>
+      </div>
+
+ 
+    </div>
+  </section>
+</ion-content>

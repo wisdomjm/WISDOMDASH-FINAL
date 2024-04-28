@@ -1,0 +1,60 @@
+<ion-header [translucent]="true" class="ion-no-border">
+
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Informacion del Usuario</ion-title>
+    <ion-item lines="none" slot="end" color="light">
+      <ion-avatar slot="start">
+        <img src="../../assets/icons/wisdomlogo.jpg" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h1>Admin</h1>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1 class="main-label titulo" style="font-weight: 400;">Informacion Personal</h1>
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" style="font-size: 22px; font-weight: 500;">ID</ion-col>
+      <ion-col size="3" style="font-size: 22px; font-weight: 500;">Nombre</ion-col>
+      <ion-col size="3" style="font-size: 22px; font-weight: 500;">Apellidos</ion-col>
+      <ion-col size="3" style="font-size: 22px; font-weight: 500;">Username</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3" style="font-size: 18px; font-weight: 300;">{{usuariosRegistrados.id}}</ion-col>
+      <ion-col size="3" style="font-size: 18px; font-weight: 300;">Nombre</ion-col>
+      <ion-col size="3" style="font-size: 18px; font-weight: 300;">Apellido</ion-col>
+      <ion-col size="3" style="font-size: 18px; font-weight: 300;">Username</ion-col>
+    </ion-row>
+
+    <h1 class="main-label titulo" style="font-weight: 400;">Informacion de Contacto</h1>
+    <br>
+
+    <ion-row>
+      <ion-col size="6"  style="font-size: 22px; font-weight: 500;">Email</ion-col>
+      <ion-col size="6"  style="font-size: 22px; font-weight: 500;">Direccion</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" style="font-size: 18px; font-weight: 300;">{{usuariosRegistrados.email}}</ion-col>
+      <ion-col size="6" style="font-size: 18px; font-weight: 300;">Direccion</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6"  style="font-size: 22px; font-weight: 500;">Telefono</ion-col>
+      
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" style="font-size: 18px; font-weight: 300;">+57 555000111</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h1 class="main-label titulo" style="font-weight: 400;">Sus cursos</h1>
+  <br>
+</ion-content>

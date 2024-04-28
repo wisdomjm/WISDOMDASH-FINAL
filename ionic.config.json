@@ -1,0 +1,7 @@
+{
+  "name": "DashboardEducation",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,56 @@
+<ion-header [translucent]="true" class="ion-no-border">
+
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{cursos.nombreCurso}}</ion-title>
+    <ion-item lines="none" slot="end" color="light">
+      <ion-avatar slot="start">
+        <img src="../../assets/icons/wisdomlogo.jpg" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h1>Admin</h1>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="contenedor-curso">
+    <div class="informacion">
+      <img src="{{cursos.imagenCurso}}" alt="Imagen">
+      <h1 style="font-size: 52px; font-weight: 400; display: flex; justify-content: space-between;">
+        {{cursos.nombreCurso}} <span>${{cursos.precio}}</span>
+      </h1>
+      <p style="font-size: 12px; font-weight: 200; margin-top: -10px;">{{cursos.id}}</p>
+      <!--p>Categoria: {{cursos.categoria}}</p>
+      <p>Descripcion corta: {{cursos.descripcionCorta}}</p-->
+      <p style="font-size: 24px; font-weight: 300; text-align: left;">Descripcion: {{cursos.descripcionLarga}}</p>
+      <p>Lecciones: {{numerodeclases}}</p>
+      <br>
+
+      <ion-list *ngFor="let clases of contenidoClases">
+        <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+          <div style="width: 340px; height: 220px;">
+            <video [src]="clases.videoDeSubclase" width="340" height="220" type="video/mp4" controls></video>
+          </div>
+          <div style="margin-left: 16px;">
+            <h1>{{clases.nombreDeSubclase}}</h1>
+            <p>{{clases.descripcionDeSubclase}}</p>
+          </div>
+          
+        </div>   
+      </ion-list>
+
+      <br>
+      <ion-item lines="none">
+        <ion-button slot="end" mode="ios" size="large" display="block" color="jmvioleta" [routerLink]="['/editarcurso', cursos.id]">Editar</ion-button>
+      </ion-item>
+    </div>
+    
+    
+  </div>
+  <div class="vspace"></div>
+  
+</ion-content>

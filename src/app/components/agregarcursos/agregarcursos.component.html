@@ -1,0 +1,140 @@
+
+<div class="contenedor-principal">
+  <div class="agregar_contenido ion-padding">
+    <ion-list lines="none">
+      <ion-list-header> <h1 class="titulo">Crear un Nuevo Curso</h1></ion-list-header>
+      <br>
+      <!--Inputs-->
+      <ion-item>
+        <ion-input 
+          [(ngModel)]="curso.nombre"
+          color="jmvioleta"
+          label="Nombre del Curso" 
+          label-placement="floating"  
+          class="texto-mediano" 
+          type="text">
+        </ion-input>
+      </ion-item>
+
+      <!--Categoria-->
+      <ion-item>
+        <ion-select label="Categorias" 
+          label-placement="floating" 
+          placeholder="Categorias" 
+          class="texto-mediano"
+          color="jmvioleta">
+          <ion-select-option value="Categoria 1">Categoria 1</ion-select-option>
+          <ion-select-option value="Categoria 2">Categoria 2</ion-select-option>
+          <ion-select-option value="Categoria 3">Categoria 3</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!--Descripcion-->
+      <ion-item>
+        <ion-textarea 
+          label="Descripcion" 
+          label-placement="floating"
+          placeholder="Descripcion del Curso"
+          [counter]="true"
+          maxlength="1000"
+          [autoGrow]="true"
+          class="texto-mediano"
+          color="jmvioleta"
+        ></ion-textarea>
+      </ion-item>
+      <br><br>
+
+
+      <!--AGREGAR CAPITULOS DE LAS CLASES-->
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-label class="subtitulo">Primera Clase del Curso</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <!--Esta parte se encarga de agregar los subthemas del curso principal-->
+            <ion-list lines="none">
+              <ion-item >
+                <ion-input 
+                  color="jmvioleta" 
+                  label="Nombre de la clase" 
+                  label-placement="floating" 
+                  placeholder="Enter text"
+                  class="texto-mediano"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-textarea 
+                  label="Descripcion" 
+                  label-placement="floating"
+                  placeholder="Descripcion Corta del Curso"
+                  [counter]="true"
+                  maxlength="500"
+                  [autoGrow]="true"
+                  color="jmvioleta"
+                  class="texto-mediano"
+                ></ion-textarea>
+              </ion-item>
+
+              <ion-item >
+                <ion-input 
+                  color="jmvioleta" 
+                  label="Numero clases" 
+                  type="text" 
+                  label-placement="floating" 
+                  placeholder="01:23" 
+                  class="texto-pequeño"
+                ></ion-input>
+              </ion-item>
+              
+              <ion-item >
+                <ion-input 
+                  color="jmvioleta" 
+                  label="Duracion de la clase" 
+                  label-placement="floating" 
+                  placeholder="01:23"
+                  class="texto-mediano"
+                ></ion-input>
+              </ion-item>
+            </ion-list>
+            <!--###################################################################-->
+          </div>
+        </ion-accordion>
+
+        <ion-accordion value="second">
+          <ion-item slot="header" color="light">
+            <ion-label class="subtitulo">Segunda Primera Clase del Curso</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            Second Content
+          </div>
+        </ion-accordion>
+
+        <ion-accordion value="third">
+          <ion-item slot="header" color="light">
+            <ion-label class="subtitulo">Tercera Primera Clase del Curso</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            Third Content
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+
+    </ion-list>
+    <br>
+    <ion-button color="primary" expand="block">AGREGAR</ion-button>
+
+    <ion-button color="jmvioleta" 
+      expand="block" 
+      (click)="RegistrarNuevoCurso(curso.nombre)">
+      ENVIAR
+    </ion-button>
+  </div>
+
+  <div class="contenido-derecho">
+    <h1 class="subtitulo">Validaciones</h1>
+  </div>
+
+</div>

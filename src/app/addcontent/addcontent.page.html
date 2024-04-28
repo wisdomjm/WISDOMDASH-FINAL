@@ -1,0 +1,209 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-title>Dashboard/Curso</ion-title>
+    <ion-item lines="none" slot="end" color="light">
+      <ion-avatar slot="start">
+        <img src="../../assets/icons/wisdomlogo.jpg" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h1>Admin</h1>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="main-content">
+    <div class="left_content">
+      <app-side-menu></app-side-menu>
+    </div>
+
+    <div class="right_content">
+      <!--app-agregarcursos></app-agregarcursos-->
+
+
+      <h1 class="titulo">Crear un Nuevo Curso</h1>
+      <br>
+
+      <!--AREA DONDE VA LA IMAGEN-->
+      <ion-grid>
+        <ion-row>
+          <!--BOTON PARA CARGAR LA IMAGEN-->
+          <ion-col size="6">
+
+            <ion-item lines="none">
+              <ion-label>Imagen del Curso</ion-label>
+            </ion-item>
+
+            <!--Upload Image to Storage size="medium"-->
+            <ion-card class="ion-text-center" *ngIf="!isFileUploading && !isFileUploaded">
+              <ion-card-header>
+                <ion-card-title>Choose Images to Upload</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <div color="jmvioleta" >
+                  <input type="file" (change)="uploadImage($event.target.files)" />
+                </div>
+              </ion-card-content>
+            </ion-card>
+
+            <!-- File upload progress bar -->
+            <ion-item *ngIf="percentageVal | async as percentage">
+              <p>Progress: {{ percentage | number }}%</p>
+              <ion-progress-bar value="{{ percentage / 100 }}"></ion-progress-bar>
+            </ion-item>
+
+            <ion-item *ngIf="trackSnapshot | async as snap">
+              <p>File size: {{ snap.totalBytes | formatFileSizePipe }} Data transfered: {{
+                snap.bytesTransferred | formatFileSizePipe }}</p>
+            </ion-item>
+
+
+            <ion-item lines="none">
+              <ion-label>Informacion sobre el Curso</ion-label>
+            </ion-item>
+
+            <!--Inputs-->
+            <ion-item>
+              <ion-input [(ngModel)]="curso.nombreCurso" color="jmvioleta" label="Nombre del Curso"
+                label-placement="floating" class="texto-mediano" type="text">
+              </ion-input>
+            </ion-item>
+
+            <!--Categoria-->
+            <ion-item>
+              <ion-select label="Etapas" [(ngModel)]="curso.categoria" label-placement="floating"
+                placeholder="Etapas" class="texto-mediano" color="jmvioleta">
+                <ion-select-option value="0 - 1 Año">0 - 1 Año</ion-select-option>
+                <ion-select-option value="1 - 2 Años">1 - 2 Años</ion-select-option>
+                <ion-select-option value="2 - 3 Años">2 - 3 Años</ion-select-option>
+                <ion-select-option value="3 - 5 Años">3 - 5 Años</ion-select-option>
+                <ion-select-option value="6 - 9 Años">6 - 9 Años</ion-select-option>
+                <ion-select-option value="10 - 14 Años">10 - 14 Años</ion-select-option>
+                <ion-select-option value="15 - 17 Años">15 - 17 Años</ion-select-option>
+                <ion-select-option value="+18 Años">+18 Años</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <!--Descripcion Corta-->
+            <ion-item lines="none">
+              <ion-textarea label="Descripcion Corta" [(ngModel)]="curso.descripcionCorta" label-placement="floating"
+                placeholder="Escriba una descripcion Corta del Curso" [counter]="true" maxlength="200" [autoGrow]="true"
+                class="texto-mediano" color="jmvioleta"></ion-textarea>
+            </ion-item>
+
+            <!--Descripcion Larga-->
+            <ion-item lines="none">
+              <ion-textarea label="Descripcion General" [(ngModel)]="curso.descripcionLarga" label-placement="floating"
+                placeholder="Descripcion General del Curso" [counter]="true" maxlength="1000" [autoGrow]="true"
+                class="texto-mediano" color="jmvioleta"></ion-textarea>
+            </ion-item>
+            
+            <ion-item lines="none">
+              <ion-label>Informacion Financiera</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-input  color="jmvioleta" label="Precio del Curso"
+                label-placement="floating" class="texto-mediano" type="number" [(ngModel)]="curso.precio">
+              </ion-input>
+            </ion-item>
+
+            <!--AGREGAR CAPITULOS DE LAS CLASES-->
+            <ion-item lines="none">
+              <ion-label>Agregar contenido al Curso</ion-label>
+            </ion-item>
+            <ion-accordion-group>
+              <ion-accordion value="first">
+                <ion-item slot="header" color="light">
+                  <ion-label class="subtitulo">Agregar Contenidos a las Clases</ion-label>
+                </ion-item>
+
+                <div class="ion-padding" slot="content">
+                  <!--Esta parte se encarga de agregar los subthemas del curso principal-->
+                  <ion-list lines="none">
+                    <ion-item>
+                      <ion-input label="Nombre Sub Clase" [(ngModel)]="subClasesDelCurso.nombreDeSubclase"
+                        label-placement="floating" placeholder="Nombre SubClase" color="jmvioleta"
+                        class="texto-mediano"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-textarea label="Descripcion" [(ngModel)]="subClasesDelCurso.descripcionDeSubclase"
+                        label-placement="floating" placeholder="Nombre SubClase" [counter]="true" maxlength="500"
+                        [autoGrow]="true" color="jmvioleta" class="texto-mediano"></ion-textarea>
+                    </ion-item>
+
+                    <!--ion-item>
+                      <ion-input label="Enlace del Video" [(ngModel)]="subClasesDelCurso.videoDeSubclase"
+                        label-placement="floating" placeholder="Enlace del Video" color="jmvioleta"
+                        class="texto-mediano"></ion-input>
+                    </ion-item-->
+
+                    <div>
+
+                      <ion-label>Cargar Video</ion-label>
+                      <div class="vspace"></div>
+                
+                      <video width="640" height="240" controls>
+                        <source [src]="videoPrevio" type="video/mp4"  preload="metadata" autoplay="autoplay">
+                        Tu navegador no soporta el elemento de video.
+                      </video>
+                
+                      <!--img src="{{videoPrevio}}" *ngIf="videoPrevio != null" alt="" *ngIf="videoPrevio != null" class="imagenAmostrar"-->
+                      <br>
+                      <input  type="file" (change)="seleccionarVideo($event)" multiple> 
+                
+                     
+                      <ion-button color="dark" expand="block" (click)="subirVideo()">
+                        <i class='bx bxs-cloud-upload' style="font-size: 26px;"></i> Subir video
+                      </ion-button>
+                
+                    </div>
+                  </ion-list>
+
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col size="4"></ion-col>
+                      <ion-col size="4"></ion-col>
+                      <ion-col size="4">
+                        <ion-button expand="block" color="dark"
+                          (click)="AgregarSubClases(subClasesDelCurso.nombreDeSubclase, subClasesDelCurso.descripcionDeSubclase, subClasesDelCurso.videoDeSubclase)">Agregar</ion-button>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                  <!--###################################################################-->
+                </div>
+
+              </ion-accordion>
+            </ion-accordion-group>
+
+            <!--ion-button color="primary" expand="block">AGREGAR</ion-button-->
+
+            <!--Boton para enviar la Informacion del curso-->
+            <ion-button color="jmvioleta" expand="block"
+              (click)="RegistrarNuevoCurso(curso.nombreCurso, curso.categoria, curso.descripcionLarga, curso.descripcionCorta, auxImagenCurso, curso.precio)">ENVIAR
+            </ion-button>
+
+
+          </ion-col>
+
+          <!--VISTA PREVIA DE LA IMAGEN-->
+          <ion-col size="6">
+            <div style="width: 512px; height: 512px; display: flex; margin: auto;">
+              <img src="{{auxImagenCurso}}" alt="Imagen">
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <br><br><br><br><br><br><br>
+    </div>
+  </div>
+
+
+
+
+
+</ion-content>

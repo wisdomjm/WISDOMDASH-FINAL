@@ -1,0 +1,20 @@
+<h1 class="main-label titulo" style="font-weight: 200;">Lista de Cursos</h1>
+<br>
+<swiper-container [slidesPerView]="3.5" [loop]="false" [speed]="500" [autoplay]="true"
+  style="padding: 10px auto !important; height: 420px;"
+  css-mode="true">
+
+  <swiper-slide *ngFor="let cursosactivos of cursos">
+    <div class="contenedor_cursos">
+      <div class="imagen_curso">
+        <img src="../../../assets/cursos/child-2835430_640.jpg" alt="">
+      </div>
+      <div class="informacion_cursos">
+        <h1 class="subtitulo">{{cursosactivos.nombreCurso}}</h1>
+        <p class="texto-mediano">{{cursosactivos.descripcionCorta}}</p>
+        <!--h4 class="texto-pequeño">Estudiantes: 22</h4-->
+      </div>
+    </div>
+  </swiper-slide>
+</swiper-container>
+

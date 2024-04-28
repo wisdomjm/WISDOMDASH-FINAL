@@ -1,0 +1,56 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-title>Dashboard/Usuarios</ion-title>
+    <ion-item lines="none" slot="end" color="light">
+      <ion-avatar slot="start">
+        <img src="../../assets/icons/wisdomlogo.jpg" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h1>Admin</h1>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="main-content">
+    <div class="left_content">
+      <app-side-menu></app-side-menu>
+    </div>
+
+    <div class="right_content">
+      <div class="content_users">
+        <!--La lista de Usuarios Registrados-->
+        <div class="users">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3"><h3 style="font-weight: 400;" class="texto-mediano">Id</h3></ion-col>
+              <ion-col size="3"><h3 style="font-weight: 400;" class="texto-mediano">Email</h3></ion-col>
+              <ion-col size="1"><h3 style="font-weight: 400;" class="texto-mediano">Mas...</h3></ion-col>
+            </ion-row>
+            <ion-row *ngFor="let usuarios of usuariosRegistrados">
+              <ion-col size="3" style="text-align: left; font-weight: 300;" class="texto-pequeño">
+                <p>{{usuarios.id}}</p>
+              </ion-col>
+              <ion-col size="3" style="text-align: left; font-weight: 300;" class="texto-pequeño">
+                <p>{{usuarios.email}}</p>
+              </ion-col>
+              <ion-col size="1" style="text-align: left; font-weight: 300;" class="texto-pequeño">
+                <ion-icon name="reader-outline" 
+                  color="jmvioleta" style="margin-top: 14px;"  [routerLink]="['/informaciondelusuario', usuarios.id]"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </div>
+
+        <!--Al seleccionar un usuario mostrar toda su informacion-->
+        <div class="user_select">
+          
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>

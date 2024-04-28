@@ -1,0 +1,82 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Curso</ion-title>
+    <ion-item lines="none" slot="end" color="light">
+      <ion-avatar slot="start">
+        <img src="../../assets/icons/wisdomlogo.jpg" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h1>Admin</h1>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="contenedor-curso">
+    <div class="informacion">
+      <img src="{{cursos.imagenCurso}}" alt="Imagen">
+      <ion-item lines="none">
+        <ion-label>Informacion sobre el Curso</ion-label>
+      </ion-item>
+    
+      <!--Inputs-->
+      <ion-item>
+        <ion-input style="font-size: 26px; font-weight: 300;" [(ngModel)]="cursos.nombreCurso" color="jmvioleta" label="Nombre del Curso" label-placement="floating"
+          class="texto-mediano" type="text">
+        </ion-input>
+      </ion-item>
+    
+      <!--Categoria-->
+      <ion-item>
+        <ion-select label="Categorias" style="font-size: 26px; font-weight: 300;" [(ngModel)]="cursos.categoria" label-placement="floating" placeholder="Categorias"
+          class="texto-mediano" color="jmvioleta">
+          <ion-select-option value="Categoria 1">Categoria 1</ion-select-option>
+          <ion-select-option value="Categoria 2">Categoria 2</ion-select-option>
+          <ion-select-option value="Categoria 3">Categoria 3</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+      <!--Descripcion Corta-->
+      <ion-item lines="none">
+        <ion-textarea  style="font-size: 26px; font-weight: 300;" label="Descripcion Corta" [(ngModel)]="cursos.descripcionCorta" label-placement="floating"
+          placeholder="Escriba una descripcion Corta del Curso" [counter]="true" maxlength="200" [autoGrow]="true"
+          class="texto-mediano" color="jmvioleta"></ion-textarea>
+      </ion-item>
+    
+      <!--Descripcion Larga-->
+      <ion-item lines="none">
+        <ion-textarea style="font-size: 26px; font-weight: 300;" label="Descripcion General" [(ngModel)]="cursos.descripcionLarga" label-placement="floating"
+          placeholder="Descripcion General del Curso" [counter]="true" maxlength="1000" [autoGrow]="true"
+          class="texto-mediano" color="jmvioleta"></ion-textarea>
+      </ion-item>
+    
+      <ion-item lines="none">
+        <ion-label>Informacion Financiera</ion-label>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input style="font-size: 26px; font-weight: 500;" color="jmvioleta" label="Precio del Curso" label-placement="floating" class="texto-mediano" type="number"
+          [(ngModel)]="cursos.precio">
+        </ion-input>
+      </ion-item>
+    
+      <!--AGREGAR CAPITULOS DE LAS CLASES-->
+      <ion-item lines="none">
+        <ion-label>Agregar contenido al Curso</ion-label>
+      </ion-item>
+
+      <!--Acrualiza Curso-->
+      <ion-item lines="none">
+        <ion-button slot="end" mode="ios" size="large" display="block" color="jmvioleta" (click)="ActualizarCurso()">Actualizar</ion-button>
+      </ion-item>
+    </div>
+  </div>
+  
+  
+
+</ion-content>

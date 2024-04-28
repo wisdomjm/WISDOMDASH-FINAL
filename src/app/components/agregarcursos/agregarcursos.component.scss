@@ -1,0 +1,37 @@
+.contenedor-principal{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+.agregar_contenido{
+    width: 60%;
+    height: auto;
+    margin: 20px auto;
+    padding: 20px auto;
+    position: relative;
+    margin-left: 10px !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+}
+
+.contenido-derecho{
+    width: 30%;
+    height: auto;
+    margin: 20px auto;
+}
+
+ion-input.custom{
+    font-size: 22px;
+}
+
+ion-select.custom{
+    font-size: 22px;
+}
+
+ion-textarea.custom{
+    font-size: 22px;
+}
+
+.curso-header{
+    font-size: 22px;
+}
